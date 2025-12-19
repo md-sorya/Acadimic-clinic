@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>برنامج العيادة الأكاديمية - مؤسسة عائشة بخيت التعليمية الخاصة</title>
+<link rel="stylesheet" href="style.css">
+<!-- Firebase -->
+<script type="module" src="https://www.gstatic.com/firebasejs/9.30.0/firebase-app.js"></script>
+<script type="module" src="https://www.gstatic.com/firebasejs/9.30.0/firebase-firestore.js"></script>
+</head>
+<body>
+<div class="container">
+  <h1>برنامج العيادة الأكاديمية</h1>
+
+  <div class="card">
+    <h2>إضافة طالب جديد</h2>
+    <input id="name" placeholder="اسم الطالب">
+    <input id="className" placeholder="الفصل">
+    <input id="housing" placeholder="السكن">
+    <input id="phone" placeholder="رقم الهاتف">
+    <button onclick="addStudent()">إضافة الطالب</button>
+  </div>
+
+  <div class="card">
+    <h2>قائمة الطلاب</h2>
+    <table id="studentsTable"></table>
+  </div>
+
+  <div class="card">
+    <h2>بحث وإنشاء حصة</h2>
+    <input id="searchInput" placeholder="بحث (اسم، مادة، جزئية، أستاذ)">
+    <button onclick="searchStudents()">بحث</button>
+    <h3>إنشاء حصة</h3>
+    <input id="sessionTeacher" placeholder="اسم الأستاذ">
+    <input id="sessionSubject" placeholder="المادة">
+    <input id="sessionPart" placeholder="الجزئية">
+    <button onclick="createSession()">إنشاء الحصة</button>
+    <table id="searchResults"></table>
+    <table id="sessionResults"></table>
+  </div>
+
+  <div class="card" id="studentDetails" style="display:none;">
+    <h2>ملف الطالب</h2>
+    <p>اسم الطالب: <span id="studentName"></span></p>
+    <p>الفصل: <span id="studentClass"></span></p>
+    <p>السكن: <span id="studentHousing"></span></p>
+    <p>رقم الهاتف: <span id="studentPhone"></span></p>
+
+    <h3>المشاكل</h3>
+    <input id="problemSubject" placeholder="المادة">
+    <input id="problemPart" placeholder="الجزئية">
+    <input id="problemTeacher" placeholder="الأستاذ">
+    <select id="problemStatus">
+      <option value="قائمة">قائمة</option>
+      <option value="جاري المعالجة">جاري المعالجة</option>
+      <option value="تم الحل">تم الحل</option>
+    </select>
+    <button onclick="addProblem()">إضافة مشكلة</button>
+
+    <table id="problemsTable"></table>
+
+    <h3>النتائج النهائية</h3>
+    <input id="finalSubject" placeholder="اسم المشكلة">
+    <input id="finalGrade" placeholder="الدرجة">
+    <button onclick="addFinalResult()">إضافة النتيجة</button>
+    <table id="finalResultsTable"></table>
+
+    <button onclick="closeStudent()">إغلاق الملف</button>
+  </div>
+</div>
+
+<script type="module" src="script.js"></script>
+</body>
+</html>
