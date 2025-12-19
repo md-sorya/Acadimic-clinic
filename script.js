@@ -15,12 +15,22 @@ const db = getFirestore(app);
 
 let currentStudent=null;
 
+// التبديل بين اللوحات
+function showPanel(panelId){
+  document.getElementById('supervisor').style.display='none';
+  document.getElementById('admin').style.display='none';
+  document.getElementById(panelId).style.display='block';
+}
+window.showPanel = showPanel;
+
 // إضافة طالب
 async function addStudent(){
   const name=document.getElementById('name').value;
   const className=document.getElementById('className').value;
   const housing=document.getElementById('housing').value;
   const phone=document.getElementById('phone').value;
+
+  if(!name || !className) return alert("يرجى إدخال الاسم والفصل");
 
   await addDoc(collection(db,'students'),{
     name,className,housing,phone,
@@ -50,8 +60,7 @@ async function renderStudents(){
 async function openStudent(id){
   currentStudent={id};
   const docSnap = await getDocs(collection(db,'students'));
-  const stDoc = await doc(db,'students',id);
-  const stData = (await getDocs(collection(db,'students'))).docs.find(d=>d.id===id).data();
+  const stData = docSnap.docs.find(d=>d.id===id).data();
   currentStudent={id,...stData};
 
   document.getElementById('studentDetails').style.display='block';
@@ -183,7 +192,7 @@ async function createSession(){
   document.getElementById('sessionResults').innerHTML=h;
 }
 
-// تفعيل التحديث الفوري بين الأجهزة
+// المزامنة الفورية
 onSnapshot(collection(db,'students'),snapshot=>{
   renderStudents();
   if(currentStudent) openStudent(currentStudent.id);
