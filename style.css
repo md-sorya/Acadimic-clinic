@@ -1,48 +1,112 @@
-body{
-  font-family: Arial, sans-serif;
-  background-color:#f2f2f2;
-  text-align:center;
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f6fa;
+  margin: 0;
+  padding: 0;
+  color: #2c3e50;
 }
-.container{
-  width:90%;
-  margin:auto;
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 20px auto;
+  text-align: center;
 }
-h1{
-  color:#2c3e50;
+
+h1 {
+  color: #34495e;
+  margin-bottom: 30px;
 }
-.card{
-  background:#fff;
-  padding:20px;
-  margin:20px 0;
-  border-radius:10px;
-  box-shadow:0 0 10px rgba(0,0,0,0.1);
+
+.tabs {
+  margin-bottom: 20px;
 }
-input, select{
-  margin:5px;
-  padding:8px;
-  border-radius:5px;
-  border:1px solid #ccc;
+
+.tabs button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #3498db;
+  color: #fff;
+  border-radius: 8px;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
 }
-button{
-  padding:8px 12px;
-  border:none;
-  background:#3498db;
-  color:#fff;
-  border-radius:5px;
-  cursor:pointer;
+
+.tabs button:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
 }
-button:hover{
-  background:#2980b9;
+
+/* البطاقات */
+.card {
+  background-color: #fff;
+  padding: 20px 30px;
+  margin: 20px 0;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
 }
-table{
-  width:100%;
-  border-collapse:collapse;
-  margin-top:10px;
+
+.card:hover {
+  transform: translateY(-5px);
 }
-table, th, td{
-  border:1px solid #ccc;
+
+input, select {
+  margin: 8px 5px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  width: 200px;
+  box-sizing: border-box;
 }
-th, td{
-  padding:8px;
-  text-align:center;
+
+button {
+  padding: 10px 15px;
+  border: none;
+  background-color: #3498db;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  margin: 5px;
+}
+
+button:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+table, th, td {
+  border: 1px solid #ddd;
+}
+
+th, td {
+  padding: 10px;
+  text-align: center;
+}
+
+th {
+  background-color: #3498db;
+  color: #fff;
+  font-weight: bold;
+}
+
+td {
+  background-color: #ecf0f1;
+}
+
+tr:hover td {
+  background-color: #d6eaf8;
+}
+
+h2, h3 {
+  color: #2c3e50;
+  margin-bottom: 15px;
 }
